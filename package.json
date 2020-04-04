@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-blog-max",
+  "name": "nuxt-srr-spa",
   "version": "1.0.0",
-  "description": "My outstanding Nuxt.js project",
+  "description": "Build server-side-rendered single-page-applications (SPAs)",
   "author": "Aleksey Belchenkov",
   "private": true,
   "scripts": {
