@@ -4,38 +4,34 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <nuxt-link class="post-preview" :to="`/posts/${'1'}`">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background: url('https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')"
-          ></div>
-          <div class="post-content">
-            <h1>Post Title</h1>
-            <p>Preview Text</p>
-          </div>
-        </article>
-      </nuxt-link>
-      <nuxt-link class="post-preview" :to="`/posts/${'2'}`">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background: url('https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')"
-          ></div>
-          <div class="post-content">
-            <h1>Post Title 2</h1>
-            <p>Preview Text 2</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        title="Post One"
+        previewText="This is first post"
+        thumbnail="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <PostPreview
+        id="2"
+        title="Post Two"
+        previewText="This is second post"
+        thumbnail="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
+      <PostPreview
+        id="3"
+        title="Post Three"
+        previewText="This is third post"
+        thumbnail="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      />
     </section>
   </div>
 </template>
 
 <script>
+import PostPreview from "../components/Posts/PostPreview";
 
 export default {
   components: {
+    PostPreview
   }
 }
 </script>
@@ -78,41 +74,5 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
-
-  .post-preview {
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 2px #ccc;
-    background-color: white;
-    width: 90%;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  @media (min-width: 850px) {
-    .post-preview {
-      width: 400px;
-      margin: 10px;
-    }
-  }
-
-  .post-thumbnail {
-    width: 100%;
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .post-content {
-    padding: 10px;
-    text-align: center;
-  }
-
-  a:hover .post-content,
-  a:active .post-content {
-    background-color: #ccc;
   }
 </style>

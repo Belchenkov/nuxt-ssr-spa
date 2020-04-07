@@ -6,7 +6,6 @@
 
 <style>
 html, body {
-  font-family: 'Muli', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
