@@ -16,8 +16,8 @@
 </template>
 
 <script>
-  import AppControlInput from "../../UI/AppControlInput";
-  import AppButton from "../../UI/AppButton";
+  import AppControlInput from "../../ui/AppControlInput";
+  import AppButton from "../../ui/AppButton";
 
   export default {
     name: 'AdminAuthPage',

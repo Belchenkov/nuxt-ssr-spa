@@ -22,8 +22,8 @@
 </template>
 
 <script>
-  import AppControlInput from "../../pages/UI/AppControlInput";
-  import AppButton from "../../pages/UI/AppButton";
+  import AppControlInput from "../../pages/ui/AppControlInput";
+  import AppButton from "../../pages/ui/AppButton";
 
   export default {
     props: {

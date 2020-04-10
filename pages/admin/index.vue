@@ -12,9 +12,10 @@
 
 <script>
   import PostList from "../../components/Posts/PostList";
-  import AppButton from "../UI/AppButton";
+  import AppButton from "../ui/AppButton";
 
   export default {
+    layout: 'admin',
     name: "index",
     components: {
       AppButton,
