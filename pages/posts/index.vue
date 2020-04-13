@@ -1,7 +1,7 @@
 <template>
   <div class="posts-page">
     <section class="posts-list">
-      <PostList />
+      <PostList posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -13,6 +13,30 @@
       name: "index",
       components: {
         PostList
+      },
+      asyncData(context) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({
+              loadedPosts: [
+                {
+                  id: 1,
+                  title: `First Post`,
+                  previewText: 'Preview Text',
+                  author: 'Aleksey Belchekov',
+                  updatedDate: new Date(),
+                  content: 'Some dummy content',
+                  thumbnail: ''
+                }
+              ]
+            });
+          });
+        }).then(data => {
+            return data;
+          })
+          .catch(e => {
+          context.error(new Error());
+        });
       }
     }
 </script>
