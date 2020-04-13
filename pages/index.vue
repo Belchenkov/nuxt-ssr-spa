@@ -13,29 +13,39 @@
 import PostList from "../components/Posts/PostList";
 
 export default {
-  data() {
+  /*data() {
     return {
-      loadedPost: [
-        {
-          id: "1",
-          title: 'First Post',
-          previewText: "preview text",
-          thumbnail: ''
-        },
-        {
-          id: "2",
-          title: 'Second Post',
-          previewText: "preview text",
-          thumbnail: ''
-        },
-        {
-          id: "3",
-          title: 'Third Post',
-          previewText: "preview text",
-          thumbnail: ''
-        }
-      ]
+      loadedPost: []
     }
+  },*/
+  async asyncData() {
+    await setTimeout(() => {
+      return {
+        loadedPosts: [
+          {
+            id: "1",
+            title: 'First Post',
+            previewText: "preview text",
+            thumbnail: ''
+          },
+          {
+            id: "2",
+            title: 'Second Post',
+            previewText: "preview text",
+            thumbnail: ''
+          },
+          {
+            id: "3",
+            title: 'Third Post',
+            previewText: "preview text",
+            thumbnail: ''
+          }
+        ]
+      }
+    }, 1000)
+  },
+  created() {
+
   },
   components: {
     PostList
