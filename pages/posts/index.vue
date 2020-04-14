@@ -1,7 +1,7 @@
 <template>
   <div class="posts-page">
     <section class="posts-list">
-      <PostList posts="loadedPosts" />
+      <PostList v-if="loadedPosts" posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -37,6 +37,9 @@
           .catch(e => {
           context.error(new Error());
         });
+      },
+      created() {
+        this.$store.dispatch('setPosts', this.loadedPosts);
       }
     }
 </script>
