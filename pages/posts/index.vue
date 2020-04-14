@@ -1,7 +1,7 @@
 <template>
   <div class="posts-page">
     <section class="posts-list">
-      <PostList />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -13,6 +13,11 @@
       name: "index",
       components: {
         PostList
+      },
+      computed: {
+        loadedPosts() {
+          return this.$store.getters.loadedPosts;
+        }
       }
     }
 </script>

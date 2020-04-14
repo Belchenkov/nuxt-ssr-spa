@@ -4,7 +4,7 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <PostList />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -13,6 +13,11 @@
 import PostList from "../components/Posts/PostList";
 
 export default {
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    }
+  },
   components: {
     PostList
   }
