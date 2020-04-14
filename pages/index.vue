@@ -4,7 +4,7 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <PostList :posts="loadedPost" />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -13,39 +13,10 @@
 import PostList from "../components/Posts/PostList";
 
 export default {
-  /*data() {
-    return {
-      loadedPost: []
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
     }
-  },*/
-  async asyncData() {
-    await setTimeout(() => {
-      return {
-        loadedPosts: [
-          {
-            id: "1",
-            title: 'First Post',
-            previewText: "preview text",
-            thumbnail: ''
-          },
-          {
-            id: "2",
-            title: 'Second Post',
-            previewText: "preview text",
-            thumbnail: ''
-          },
-          {
-            id: "3",
-            title: 'Third Post',
-            previewText: "preview text",
-            thumbnail: ''
-          }
-        ]
-      }
-    }, 1000)
-  },
-  created() {
-
   },
   components: {
     PostList

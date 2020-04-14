@@ -1,7 +1,7 @@
 <template>
   <div class="posts-page">
     <section class="posts-list">
-      <PostList v-if="loadedPosts" posts="loadedPosts" />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -14,32 +14,10 @@
       components: {
         PostList
       },
-      asyncData(context) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve({
-              loadedPosts: [
-                {
-                  id: 1,
-                  title: `First Post`,
-                  previewText: 'Preview Text',
-                  author: 'Aleksey Belchekov',
-                  updatedDate: new Date(),
-                  content: 'Some dummy content',
-                  thumbnail: ''
-                }
-              ]
-            });
-          });
-        }).then(data => {
-            return data;
-          })
-          .catch(e => {
-          context.error(new Error());
-        });
-      },
-      created() {
-        this.$store.dispatch('setPosts', this.loadedPosts);
+      computed: {
+        loadedPosts() {
+          return this.$store.getters.loadedPosts;
+        }
       }
     }
 </script>
