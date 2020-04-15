@@ -48,7 +48,7 @@
         this.$router.push('/admin');
       },
       onSave() {
-
+        this.$emit('submit', this.editedPost)
       }
     },
     components: {
