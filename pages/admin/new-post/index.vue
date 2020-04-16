@@ -19,9 +19,11 @@
     },
     methods: {
       onSubmitted(postData) {
-        axios.post('https://nuxt-ssr-spa.firebaseio.com/posts.json', postData)
-        .then(result => {
-          console.log(result);
+        axios.post(
+          'https://nuxt-ssr-spa.firebaseio.com/posts.json',
+          {...postData, updatedDate: new Date()}
+        ).then(result => {
+          this.$router.push('/admin');
         }).catch(err => {
           console.log(err);
         });
