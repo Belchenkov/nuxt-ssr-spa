@@ -3,6 +3,7 @@
     <section class="update-form">
       <AdminPostForm
         :post="loadedPost"
+        @submit="onSubmit"
       />
     </section>
   </div>
@@ -10,6 +11,7 @@
 
 <script>
   import AdminPostForm from "../../../components/Admin/AdminPostForm";
+  import axios from "axios";
 
   export default {
     layout: 'admin',
@@ -26,6 +28,16 @@
     name: "index",
     components: {
       AdminPostForm
+    },
+    methods: {
+      onSubmit(editedPost) {
+        axios.put(
+          `https://nuxt-ssr-spa.firebaseio.com/posts/${context.params.postId}.json`,
+          editedPost
+        ).then(res => {
+          this.$router.push('/admin');
+        }).catch(err => console.error(err));
+      }
     }
   }
 </script>
