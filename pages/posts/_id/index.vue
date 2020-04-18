@@ -23,7 +23,7 @@
       name: "index",
       asyncData(context) {
         return axios.get(
-          `https://nuxt-ssr-spa.firebaseio.com/posts/${context.params.id}.json`
+          `${process.env.baseUrl}/posts/${context.params.id}.json`
         ).then(res => {
           return {
             loadedPost: res.data
