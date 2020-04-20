@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import PostList from "../components/Posts/PostList";
 
 export default {
   computed: {
@@ -19,7 +18,6 @@ export default {
     }
   },
   components: {
-    PostList
   }
 }
 </script>

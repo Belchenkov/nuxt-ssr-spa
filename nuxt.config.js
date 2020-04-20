@@ -38,6 +38,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/core-components.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -72,5 +73,20 @@ export default {
   //dev: true,
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-ssr-spa.firebaseio.com'
-  }
+  },
+  /*rooter: {
+    base: '',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '*',
+        component: resolve(__dirname, 'pages/index.vue')
+      });
+    },
+    linkActiveClass: 'active'
+  }*/
+  // srcDir: '/client/app',
+  /*transition: {
+    name: 'page',
+    mode: 'out-in'
+  }*/
 }

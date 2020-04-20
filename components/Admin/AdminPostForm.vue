@@ -26,9 +26,6 @@
 </template>
 
 <script>
-  import AppControlInput from "../../pages/ui/AppControlInput";
-  import AppButton from "../../pages/ui/AppButton";
-
   export default {
     props: {
       post: {
@@ -57,8 +54,6 @@
       }
     },
     components: {
-      AppControlInput,
-      AppButton
     }
   }
 </script>

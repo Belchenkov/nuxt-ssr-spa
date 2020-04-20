@@ -28,7 +28,6 @@ const createStore = () => {
             for (const key in res.data) {
               postsArray.push({ ...res.data[key], id: key});
             }
-            console.log(postsArray)
             vuexContext.commit('setPosts', postsArray);
           })
           .catch(err => {
@@ -58,7 +57,6 @@ const createStore = () => {
           `${process.env.baseUrl}/posts/${post.id}.json`,
           post
         ).then(res => {
-          console.log(res)
           vuexContext.commit('editPost', post);
         }).catch(err => console.error(err));
       }
