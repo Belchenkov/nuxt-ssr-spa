@@ -7,12 +7,9 @@
 </template>
 
 <script>
-    import PostList from "../../components/Posts/PostList";
-
     export default {
       name: "index",
       components: {
-        PostList
       },
       computed: {
         loadedPosts() {

@@ -9,7 +9,7 @@
         :style="{background: `url(${thumbnail})`}"
       ></div>
       <div class="post-content">
-        <h1>{{ title }}</h1>
+        <h4>{{ title }}</h4>
         <p>{{ previewText }}</p>
       </div>
     </article>

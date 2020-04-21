@@ -15,15 +15,14 @@
 
   export default {
     layout: 'admin',
-    data() {
-      return {
-        loadedPost: {
-          author: 'Aleksey Belchenkov',
-          title: 'My awesome Post',
-          content: 'Super amazing, thanks for that!',
-          thumbnailLink: 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-        }
-      }
+    asyncData(context) {
+      return axios.get(
+        `${process.env.baseUrl}/posts/${context.params.postId}.json`
+      ).then(res => {
+        return {
+          loadedPost: { ...res.data, id: context.params.postId }
+        };
+      }).catch(err => context.error(err));
     },
     name: "index",
     components: {
@@ -31,12 +30,10 @@
     },
     methods: {
       onSubmit(editedPost) {
-        axios.put(
-          `https://nuxt-ssr-spa.firebaseio.com/posts/${context.params.postId}.json`,
-          editedPost
-        ).then(res => {
-          this.$router.push('/admin');
-        }).catch(err => console.error(err));
+        this.$store.dispatch('editedPost', editedPost)
+          .then(() => {
+            this.$router.push('/admin');
+          });
       }
     }
   }

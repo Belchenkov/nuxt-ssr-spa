@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'NEWS BLOG',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,16 +19,27 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#fa923f',
+    height: '4px',
+    duration: 5000
+  },
+  loadingIndicator: {
+    name: 'circle',
+    color: 'fa923f'
+  },
   /*
   ** Global CSS
   */
   css: [
+    //'~assets/styles/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/core-components.js',
+    '~plugins/date-filter'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,6 +60,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.BASE_URL || 'https://nuxt-ssr-spa.firebaseio.com'
   },
   /*
   ** Build configuration
@@ -59,5 +71,24 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  //dev: true,
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-ssr-spa.firebaseio.com'
+  },
+  /*rooter: {
+    base: '',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '*',
+        component: resolve(__dirname, 'pages/index.vue')
+      });
+    },
+    linkActiveClass: 'active'
+  }*/
+  // srcDir: '/client/app',
+  /*transition: {
+    name: 'page',
+    mode: 'out-in'
+  }*/
 }

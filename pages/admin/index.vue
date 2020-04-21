@@ -11,15 +11,10 @@
 </template>
 
 <script>
-  import PostList from "../../components/Posts/PostList";
-  import AppButton from "../ui/AppButton";
-
   export default {
     layout: 'admin',
     name: "index",
     components: {
-      AppButton,
-      PostList
     },
     computed: {
       loadedPosts() {

@@ -16,15 +16,10 @@
 </template>
 
 <script>
-  import AppControlInput from "../../ui/AppControlInput";
-  import AppButton from "../../ui/AppButton";
-
   export default {
     name: 'AdminAuthPage',
     layout: 'admin',
     components: {
-      AppControlInput,
-      AppButton
     },
     data() {
       return {

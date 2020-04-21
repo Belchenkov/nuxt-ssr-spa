@@ -19,14 +19,10 @@
     },
     methods: {
       onSubmitted(postData) {
-        axios.post(
-          'https://nuxt-ssr-spa.firebaseio.com/posts.json',
-          {...postData, updatedDate: new Date()}
-        ).then(result => {
-          this.$router.push('/admin');
-        }).catch(err => {
-          console.log(err);
-        });
+        this.$store.dispatch('addPost', postData)
+          .then(() => {
+            this.$router.push('/admin');
+          });
       }
     },
     name: "index",
