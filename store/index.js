@@ -90,6 +90,9 @@ const createStore = () => {
     getters: {
       loadedPosts(state) {
         return state.loadedPost;
+      },
+      isAuthenticated(state) {
+        return state.token != null;
       }
     }
   });

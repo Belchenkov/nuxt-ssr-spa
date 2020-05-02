@@ -25,6 +25,7 @@
       }).catch(err => context.error(err));
     },
     name: "index",
+    middleware: 'auth',
     components: {
       AdminPostForm
     },
