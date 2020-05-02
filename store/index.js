@@ -4,7 +4,8 @@ import axios from 'axios';
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      loadedPost: []
+      loadedPost: [],
+      token: null
     },
     mutations: {
       setPosts(state, posts) {
@@ -18,6 +19,9 @@ const createStore = () => {
 
         state.loadedPost[postIndex] = editedPost;
       },
+      setToken(state, token) {
+        state.token = token;
+      }
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -59,6 +63,28 @@ const createStore = () => {
         ).then(res => {
           vuexContext.commit('editPost', post);
         }).catch(err => console.error(err));
+      },
+      authenticateUser(vuexContext, authData) {
+        let authUrl =
+          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
+          process.env.fbAPIKey;
+
+        if (!authData.isLogin) {
+          authUrl =
+            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
+            process.env.fbAPIKey;
+        }
+
+        return this.$axios.$post(authUrl, {
+          email: authData.email,
+          password: authData.password,
+          returnSecureToken: true
+        })
+          .then(result => {
+            vuexContext.commit('setToken', result.idToken);
+          }).catch(err => {
+          console.log(err);
+        });
       }
     },
     getters: {

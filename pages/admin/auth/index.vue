@@ -30,25 +30,12 @@
     },
     methods: {
       onSubmit() {
-        let authUrl =
-          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
-          process.env.fbAPIKey;
-
-        if (!this.isLogin) {
-          authUrl =
-            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
-            process.env.fbAPIKey;
-        }
-
-        this.$axios.$post(authUrl, {
+        this.$store.dispatch('authenticateUser', {
+          isLogin: this.isLogin,
           email: this.email,
-          password: this.password,
-          returnSecureToken: true
-        })
-        .then(result => {
-          console.log(result);
-        }).catch(err => {
-          console.log(err);
+          password: this.password
+        }).then(() => {
+          this.$router.push('/admin');
         });
       }
     }
