@@ -74,7 +74,8 @@ export default {
   },
   //dev: true,
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-ssr-spa.firebaseio.com'
+    baseUrl: process.env.BASE_URL || 'https://nuxt-ssr-spa.firebaseio.com',
+    fbAPIKey: 'AIzaSyAga_lKAdBRCNRHi4OEWConkcBAdIv3Huo'
   },
   /*rooter: {
     base: '',
