@@ -25,7 +25,7 @@
       }).catch(err => context.error(err));
     },
     name: "index",
-    middleware: 'auth',
+    middleware: ['check-auth', 'auth'],
     components: {
       AdminPostForm
     },
