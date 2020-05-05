@@ -21,7 +21,11 @@ const createStore = () => {
       },
       setToken(state, token) {
         state.token = token;
+      },
+      clearToken(state) {
+        state.token = null;
       }
+
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -82,9 +86,15 @@ const createStore = () => {
         })
           .then(result => {
             vuexContext.commit('setToken', result.idToken);
+            vuexContext.dispatch('setLogoutTime', result.expiresIn);
           }).catch(err => {
           console.log(err);
         });
+      },
+      setLogoutTime(vuexContext, duration) {
+        setTimeout(() => {
+          vuexContext.commit('clearToken');
+        }, duration);
       }
     },
     getters: {
