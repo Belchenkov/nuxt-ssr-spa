@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import axios from 'axios';
 import Cookie from 'js-cookie';
 
 const createStore = () => {
