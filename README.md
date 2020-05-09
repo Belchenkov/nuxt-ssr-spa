@@ -2,6 +2,8 @@
 
 > Build server-side-rendered single-page-applications (SPAs)
 
+### [Demo](https://nuxt-ssr-spa.firebaseapp.com/)
+
 ## Build Setup
 
 ``` bash
