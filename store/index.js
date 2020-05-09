@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import axios from 'axios';
 import Cookie from 'js-cookie';
 
 const createStore = () => {
@@ -119,9 +120,12 @@ const createStore = () => {
             .split("=")[1];
           if (!jwtExpirationDate) return null;
 
-        } else {
+        } else if (process.client) {
           token = localStorage.getItem('token');
           expirationDate = localStorage.getItem('tokenExpiration')
+        } else {
+          token = null;
+          expirationDate = null;
         }
 
         if (new Date().getTime() > expirationDate || !token) {

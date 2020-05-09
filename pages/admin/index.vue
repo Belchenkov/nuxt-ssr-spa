@@ -21,7 +21,7 @@
     name: "index",
     methods: {
       onLogout() {
-        this.store.dispatch('logout');
+        this.$store.dispatch('logout');
         this.$router.push('/admin/auth');
       }
     },
